@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router'; 
+import LoginBadge from './LoginBadge.vue';
 
 const isActive = ref(false);
 
@@ -50,14 +51,7 @@ const isActive = ref(false);
 
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
-                    </div>
+                    <LoginBadge />
                 </div>
             </div>
         </div>
