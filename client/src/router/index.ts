@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: "/products",
       name: "products",
-      component: () => import("../views/productList.vue"),
+      component: () => import("../views/ProductList.vue"),
       beforeEnter: requireLogin
     },
   ],
