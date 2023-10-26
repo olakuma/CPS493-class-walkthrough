@@ -36,6 +36,7 @@
 <style scoped>
     .cart {
         padding: 1rem;
+        overflow-y: scroll;
     }
 
     .cart-items {

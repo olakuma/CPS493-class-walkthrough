@@ -14,7 +14,7 @@ const isShoppingCartOpen = ref(false);
 <template>
     <nav class="navbar" role="navigation" aria-label="main navigation" :class="{ isShoppingCartOpen }">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item">
                 <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="28" height="28" />
             </a>
 

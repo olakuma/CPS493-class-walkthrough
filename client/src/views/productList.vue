@@ -38,7 +38,7 @@
 </template>
 
 <style scoped>
-    .product.list {
+    .product-list {
         display: flex;
         flex-wrap: wrap;
         background-color: aliceblue;
