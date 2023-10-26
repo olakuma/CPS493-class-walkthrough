@@ -36,7 +36,7 @@ export const clearCart = () => {
 }
 
 export const total = computed( () => cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0));
-export const count = () => cart.reduce((sum, item) => sum + item.quantity, 0);
+export const count = computed( () => cart.reduce((sum, item) => sum + item.quantity, 0));
 
 /*  Main functional functions
     filter

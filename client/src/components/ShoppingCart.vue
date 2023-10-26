@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div>
+    <div class="cart">
         <h1 class="subtitle">
             Cart: {{ count }} items, total: ${{ total }}
         </h1>
@@ -19,9 +19,9 @@
                         <select v-model="item.quantity">
                             <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
                         </select>
-                        {{ item.product.price }} x
-                        {{ item.quantity }} = ${{ item.product.price * item.quantity }}
-                        <button class="button is-danger" @click="removeFromCart(item.product)">
+                        x $ {{ item.product.price }}
+                        = ${{ item.product.price * item.quantity }}
+                        <button class="button is-danger is-small" @click="removeFromCart(item.product)">
                             <div class="icon">
                                 <i class="fas fa-trash"></i>
                             </div>
@@ -48,8 +48,9 @@
         flex-direction: row;
         margin: .5rem;
         border: 1px solid #ccc;
-        border-radius: .5rem;
+        border-radius: 1rem;
         box-shadow: 0 0 1rem #0004;
+        overflow: hidden;
     }
 
     .item img {
