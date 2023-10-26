@@ -12,7 +12,7 @@ const isShoppingCartOpen = ref(false);
 </script>
 
 <template>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation" :class="{ isShoppingCartOpen }">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
                 <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="28" height="28" />
@@ -76,14 +76,24 @@ const isShoppingCartOpen = ref(false);
 
 
 <style scoped>
-.tag.is-small {
-    position: absolute;
-    transform: translate(50%, -30%);
-    font-size: x-small;
-}
+    @media (min-width: 641px){
+        .navbar {
+            margin-right: 2rem;
+            transition: margin-right 0.5s ease-in-out;
+        }
+        .navbar.isShoppingCartOpen {
+            margin-right: 20rem;
+        }
+    }
 
-.router-link-active {
-    font-weight: bold;
-    border-bottom: 2px solid #00d1b2;
-}
+    .tag.is-small {
+        position: absolute;
+        transform: translate(50%, -30%);
+        font-size: x-small;
+    }
+
+    .router-link-active {
+        font-weight: bold;
+        border-bottom: 2px solid #00d1b2;
+    }
 </style>
