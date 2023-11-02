@@ -24,7 +24,7 @@ const data = require('../data/products.json');
  * Returns all products.
  * @returns {Product[]} An array of products
  */
-async function getProducts() {
+function getProducts() {
   return data.products;
 }
 
