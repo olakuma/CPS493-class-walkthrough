@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAll, get, search, create, update } = require('../models/products')
+const { getAll, get, search, create, update, remove } = require('../models/products')
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
