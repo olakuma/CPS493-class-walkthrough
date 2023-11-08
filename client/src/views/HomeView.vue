@@ -1,22 +1,27 @@
 <script setup lang="ts">
+import { getUsers, type User } from '@/model/users';
 import { ref } from 'vue';
 
-const newTask = ref('');
-const tasks = ref([] as { id?: number, text: String, completed: boolean }[]);
+  const newTask = ref('');
+  const tasks = ref([] as { id?: number, text: String, completed: boolean }[]);
 
-const tabList = ['Current', 'Completed', 'All'];
-const tabState = ref('Current');
+  const tabList = ['Current', 'Completed', 'All'];
+  const tabState = ref('Current');
 
-function addTask() {
-  tasks.value.push({ text: newTask.value, completed: false } );
-  newTask.value = '';
-};
+  function addTask() {
+    tasks.value.push({ text: newTask.value, completed: false } );
+    newTask.value = '';
+  };
 
-const shouldDisplay = (task: { id?: number, text: String, completed: boolean }) =>
-    (tabState.value == 'Current' && !task.completed) ||
-    (tabState.value == 'Completed' && task.completed) ||
-    tabState.value == 'All';
+  const shouldDisplay = (task: { id?: number, text: String, completed: boolean }) =>
+      (tabState.value == 'Current' && !task.completed) ||
+      (tabState.value == 'Completed' && task.completed) ||
+      tabState.value == 'All';
 
+  const users = ref([] as User[])
+  getUsers().then((data) => {
+    users.value = data;
+  });
 
 </script>
 
@@ -52,6 +57,9 @@ const shouldDisplay = (task: { id?: number, text: String, completed: boolean }) 
           </button>
         </div>
       </div>
+
+      <div class="box" v-for="user in users" :key="user.id">
+      {{ user.firstName }} {{ user.lastName }}</div>
     </div>
   </main>
 </template>
