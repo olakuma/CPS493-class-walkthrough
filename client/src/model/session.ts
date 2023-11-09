@@ -12,12 +12,15 @@ const session = reactive({
     messages: [] as {
         type: string,
         text: string
-    }[]
+    }[],
+    loading: 0 
 })
 
 export function api(action: string) {
-    toast.warning("This is a warning toast")
+    session.loading++;
     return myFetch.api(`${action}`)
+        .catch(err => showError(err))
+        .finally(() => session.loading--);
 }
 
 export function getSession() {
