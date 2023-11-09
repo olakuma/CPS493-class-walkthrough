@@ -1,19 +1,33 @@
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
+import { useToast } from "vue-toastification"
 import { type User, getUserByEmail } from "./users";
 import * as myFetch from "./myFetch";
 
+const toast = useToast();
+
 const session = reactive({
     user: null as User | null,
-    redirectUrl: null as string | null
+    redirectUrl: null as string | null,
+    messages: [] as {
+        type: string,
+        text: string
+    }[]
 })
 
 export function api(action: string) {
+    toast.warning("This is a warning toast")
     return myFetch.api(`${action}`)
 }
 
 export function getSession() {
     return session;
+}
+
+export function showError(err: any) {
+    console.error(err);
+    session.messages.push({ type: "error", text: err.message ?? err })
+    toast.error(err.message ?? err);
 }
 
 export function useLogin() {
