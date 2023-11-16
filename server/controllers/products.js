@@ -3,7 +3,11 @@ const { getAll, get, search, create, update, remove } = require('../models/produ
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    res.send(getAll());
+    getAll()
+    .then((products) => {
+        res.send(products);
+    })
+    .catch(next)
 })
 .get('/search', (req, res, next) => {
     const results = search(req.query.q);

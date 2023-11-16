@@ -1,3 +1,6 @@
+const { ObjectId, connect } = require('./mongo')
+const data = require('../data/products.json');
+
 /**
  * @typedef {Object} Product
  * @property {number} id - The product's ID.
@@ -13,19 +16,20 @@
  * @property {string[]} images - The product's images.
  */
 
-/**
- * @typedef {Object} Products
- * @property {Product[]} products
- */
+const COLLECTION_NAME = 'products'
 
-const data = require('../data/products.json');
+async function getCollection() {
+    const db = await connect();
+    return db.collection(COLLECTION_NAME);
+}
 
 /**
  * Returns all products.
- * @returns {Product[]} An array of products
+ * @returns {Promise<Product[]>} An array of products
  */
-function getAll() {
-  return data.products;
+async function getAll() {
+    const col = await getCollection();
+    return col.find({}).toArray();
 }
 
 /**
