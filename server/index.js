@@ -6,6 +6,8 @@ const productController = require('./controllers/products')
 const userController = require('./controllers/users');
 const app = express();  //instantiate express
 
+const mongo = require('./models/mongo')
+
 const PORT = 3000;
 
 app
