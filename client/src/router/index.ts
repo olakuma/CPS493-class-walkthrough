@@ -25,6 +25,12 @@ const router = createRouter({
       component: () => import("../views/ProductList.vue"),
       beforeEnter: requireLogin
     },
+    {
+      path: "/map",
+      name: "map",
+      component: () => import("../views/UserMap.vue"),
+      // beforeEnter: requireLogin
+    },
   ],
 });
 

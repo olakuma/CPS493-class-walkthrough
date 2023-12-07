@@ -6,8 +6,18 @@ export interface User {
     lastName: string,
     email: string,
     password: string,
-    role: "admin" | "user"
-    token?: string
+    role: "admin" | "user",
+    token?: string,
+    address?: {
+        address: string,
+        city: string,
+        state: string,
+        postalCode: string,
+        coordinates: {
+          lat: number,
+          lng: number,
+        },
+    },
 }
 
 export function getUsers(): Promise< User[]> {
