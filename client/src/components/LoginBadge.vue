@@ -2,10 +2,14 @@
     import { getSession, useLogin } from '@/model/session'
 
     const session =  getSession()
-    const { login, logout } = useLogin()
+    const { login, googleLogin, logout } = useLogin()
 
     const doLogin = () => {
         login('hbingley1@plala.or.jp', 'CQutx25i8r')
+    }
+
+    const doGoogleLogin = () => {
+        googleLogin();
     }
 
     const doLogout = () => {
@@ -30,6 +34,12 @@
         </a>
         <a class="button is-light" @click.prevent="doLogin">
             Log in
+        </a>
+        <a class="button is-primary" @click.prevent="doGoogleLogin">
+            <span class="icon">
+                <i class="fab fa-google"></i>
+            </span>
+            Google Log in
         </a>
     </div>
 </template>

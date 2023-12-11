@@ -3,12 +3,12 @@ const { getAll, get, search, create, update, remove, login, register } = require
 const { requireUser } = require('../middleware/authorization');
 const router = express.Router();
 
-router.get('/', requireUser(true),(req, res, next) => {
+router.get('/', requireUser(true), (req, res, next) => {
 
     res.send(getAll());
 
 })
-.get('/search', requireUser(),(req, res, next) => {
+.get('/search', requireUser(), (req, res, next) => {
 
     const results = search(req.query.q);
     res.send(results);
