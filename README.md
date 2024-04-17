@@ -11,3 +11,5 @@ I’m a computer science major. I spent the summer as a software engineering int
 
 ### Practical application
 I hope to use my knowledge from this course to improve my coding skills further. This would be the first time for me to use vue.js, and this would be a very valuable skill to take into the workforce. This would help me become a better programmer and hopefully land a good job after graduation. I also plan on taking the feedback from my internship, and applying it to this course, and hopefully by the end of this course, I’m a better programmer.
+
+### Don't forget your .env files. You can't see them here, but you need them. Those values also belong in your environment variables of any hosting solution that you use.
